@@ -121,22 +121,35 @@ class Classroom extends Room
 	
 	public static void main(String arg[])
 	{
-		System.out.println("Hello started");
-		Room room[ ]= new Room[6];
+		System.out.println("Hello started Part 1 sorting");	
 		
+		// To test sorting works
+		Room roomSort[]= new Room[5];
+		roomSort[0]=new Classroom(20.5,17,1,5);
+		roomSort[1]=new Classroom(12.8,15.2,2,10);
+		roomSort[2]=new Classroom(10,15.5,3,6);
+		roomSort[3]=new Classroom(14.7,20.5,4,20);
+		roomSort[4]=new Classroom(20.2,19,1,25);
+
+		Arrays.sort(roomSort);
+		Arrays.stream(roomSort).forEach(System.out::println);
+		System.out.println("Hello ended Part 1 sorting");
+
+		// To identify Classrooms from Rooms
+		Room room[]= new Room[6];
 		room[0]=new Room(20.5,17,1);
 		room[1]=new Classroom(12.8,15.2,2,10);
 		room[2]=new Room(10,15.5,3);
 		room[3]=new Classroom(14.7,20.5,4,20);
 		room[4]=new Classroom(20.2,19,1,25);
 		room[5]=new Room();
-		
-		System.out.println("Hello ended");
-		for(int i=0;i<5;i++)
-			System.out.println(room[i]);
+
+		System.out.println("Hello started Part 2 Identify Classroom");
+		Arrays.stream(room).forEach(System.out::println);
 		
 		List<Classroom> classrooms= validate(room);
-		System.out.println("Classrooms = "+classrooms.size());
+		System.out.println("Count of Classrooms = "+classrooms.size());
+		System.out.println("Hello ending Part 2 Identify Classroom");
 	}
 	
 	public static List<Classroom> validate(Room[] roomArray) {
