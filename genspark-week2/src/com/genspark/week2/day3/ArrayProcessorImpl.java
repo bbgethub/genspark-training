@@ -1,4 +1,4 @@
-package com.genspark.week2.day1;
+package com.genspark.week2.day3;
 
 import java.util.Arrays;
 

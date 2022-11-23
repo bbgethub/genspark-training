@@ -1,4 +1,4 @@
-package com.genspark.week2.day1;
+package com.genspark.week2.day2;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -38,7 +38,7 @@ public class TestWordStream {
 																					 .collect(Collectors.groupingBy(c ->c,TreeMap<Character, Long>::new, Collectors.counting()));
 		
 		
-		String fileName="C:\\\\genspark\\\\genspark-training\\\\genspark-week2\\\\src\\\\com\\\\genspark\\\\week2\\\\day1\\\\words";
+		String fileName="C:\\\\genspark\\\\genspark-training\\\\genspark-week2\\\\src\\\\com\\\\genspark\\\\week2\\\\day2\\\\words";
 
 		try {
 		  System.out.println("Printing count of words Started ###");
@@ -231,8 +231,11 @@ public class TestWordStream {
 	}
 	
 	public static void findAnagrams(String filePath,Function<String, Map<Character, Long>> letters) throws IOException{		
-		Map<Map<Character, Long>, List<String>> map = readFile(filePath)				
-				.collect(Collectors.groupingBy(letters));
+		Map<Map<Character, Long>, List<String>> map = readFile(filePath)
+				 										.limit(100)
+														.collect(Collectors.groupingBy(letters));
+		//System.out.println("Print map size= " + map.size());
+
 		List<List<String>> anagramList =  map.values().stream().filter(x->x.size() >1 ).collect(Collectors.toList());
 		System.out.println("Count of Anagrams in stream Normal version = " + anagramList.size());
 	}
