@@ -10,7 +10,7 @@ public class ArrayProcessorImpl  {
 	public static final ArrayProcessor sum = (doubleArr) -> Arrays.stream(doubleArr).sum();
 	public static final ArrayProcessor avg = (doubleArr) -> Arrays.stream(doubleArr).average().getAsDouble();
 	
-	public static final ArrayProcessor countVal = (doubleArr) -> Arrays.stream(doubleArr).average().getAsDouble();
+	
 	
 	
 	
