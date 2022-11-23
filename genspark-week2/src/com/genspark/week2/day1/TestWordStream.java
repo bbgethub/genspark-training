@@ -5,8 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -23,38 +25,47 @@ public class TestWordStream {
 		Consumer<Entry<Integer, Long>> printEntry =  (entry) -> System.out.println("There are " + entry.getValue() +" , " + entry.getKey() + " Lettered Words") ;
 		
 		Function<String, Map<Character, Long>> letters = (inputString) -> inputString.toLowerCase()
-				.chars()
-				.mapToObj(c -> (char) c)
-				.collect(Collectors.groupingBy(c ->c, Collectors.counting())); 
+																					 .chars()
+																					 .mapToObj(c -> (char) c)																					 
+																					 .collect(Collectors.groupingBy(c ->c, TreeMap<Character, Long>::new,Collectors.counting()));
+		
+		Function<Map<Character, Long>,Long> mapValuesSum = (map) -> map.values().stream().reduce(0l, Long::sum);
+		
+		Function<String, Map<Character, Long>> letterE = (inputString) -> inputString.toLowerCase()
+																					 .chars()
+																					 .mapToObj(c -> (char) c)
+																					 .filter(x -> x== 'e')
+																					 .collect(Collectors.groupingBy(c ->c,TreeMap<Character, Long>::new, Collectors.counting()));
+		
 		
 		String fileName="C:\\\\genspark\\\\genspark-training\\\\genspark-week2\\\\src\\\\com\\\\genspark\\\\week2\\\\day1\\\\words";
-		// TODO Auto-generated method stub
+
 		try {
 		  System.out.println("Printing count of words Started ###");
 
-		  System.out.println(readWords("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words"));
+		  System.out.println(readWords(fileName));
 		  
 		  System.out.println("Printing first 100 words from stream started ### ");
-		  printFirst100words("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words");
+		  printFirst100words(fileName);
 		  
 		  
 		  System.out.println("Printing All Words with atleast 22 letters started ### ");
-		  printAllWordswithAtleast22Letters("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words");
+		  printAllWordswithAtleast22Letters(fileName);
 		  
 		  
 		  System.out.println("Printing some Words with atleast 22 letters started ### ");
-		  printSomeWordswithAtleast22Letters("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words");
+		  printSomeWordswithAtleast22Letters(fileName);
 		  
 
 		  System.out.println("Printing pallindromes started ### ");
 		  long starttime = System.currentTimeMillis();
-		  printPallindromes("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words",isPallindrome);
+		  printPallindromes(fileName,isPallindrome);
 		  System.out.println("Printing pallindromes Time Taken in normal version  ### "+ (System.currentTimeMillis()-starttime));	
 		  
 		  
 		  System.out.println("Printing pallindromes parallel version started ### ");
 		  starttime = System.currentTimeMillis();
-		  printPallindromesParallelVersion("C:\\genspark\\genspark-training\\genspark-week2\\src\\com\\genspark\\week2\\day1\\words",isPallindrome);
+		  printPallindromesParallelVersion(fileName,isPallindrome);
 		  System.out.println("Printing pallindromes Time Taken in parallel version  ### "+ (System.currentTimeMillis()-starttime));
 		  
 		  
@@ -70,8 +81,22 @@ public class TestWordStream {
 		  System.out.println("Printing Char Count Started ### ");  
 		  groupingWordsByChars(fileName,letters);
 		  
+		  System.out.println("Count E  Started ### ");  
+		  countLetterE(fileName,letterE,mapValuesSum);
+		  
+		  
+		  System.out.println("Anagram  Started ### ");  
+		  
+		  starttime = System.currentTimeMillis();
+		  findAnagrams(fileName,letters);
+		  System.out.println("Counting Anagrams Time Taken in normal version  ### "+ (System.currentTimeMillis()-starttime));
+		  starttime = System.currentTimeMillis();
+		  findAnagramsParallelVersion(fileName,letters);
+		  System.out.println("Counting Anagrams Time Taken in parallel version  ### "+ (System.currentTimeMillis()-starttime));
+		  
+		  System.out.println("Anagram  Ended ### ");  
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
@@ -176,7 +201,7 @@ public class TestWordStream {
 	
 	public static void groupingWordsByLength(String filePath, Consumer<Entry<Integer, Long>> entry) throws IOException{		
 		Map<Integer, Long> wordLengthMap = readFile(filePath)
-				.collect(Collectors.groupingBy(String::length,Collectors.counting()));		
+											.collect(Collectors.groupingBy(String::length,Collectors.counting()));		
 		wordLengthMap.entrySet().stream().peek(entry).collect(Collectors.counting());
 	}
 	
@@ -191,12 +216,34 @@ public class TestWordStream {
 				.collect(Collectors.counting());		
 	}
 	
-//	public static Map<Character, Long> letter(String inputString){		
-//		return inputString.toLowerCase()
-//		.chars()
-//		.mapToObj(c -> (char) c)
-//		.collect(Collectors.groupingBy(c ->c, Collectors.counting()));
-//	}
-
 	
+	public static void countLetterE(String filePath,Function<String, Map<Character, Long>> letterE,Function<Map<Character, Long>,Long> mapValuesSum) throws IOException{		
+		long count = readFile(filePath)				
+				.flatMap(line->Arrays.stream(line.trim().split(" ")))
+				.filter(word->word.length()>0)				
+				.map(letterE)				
+				.map(mapValuesSum) 
+				.reduce(0l,Long::sum);
+				
+
+	  System.out.println("E Count # "+ count);	
+		
+	}
+	
+	public static void findAnagrams(String filePath,Function<String, Map<Character, Long>> letters) throws IOException{		
+		Map<Map<Character, Long>, List<String>> map = readFile(filePath)				
+				.collect(Collectors.groupingBy(letters));
+		List<List<String>> anagramList =  map.values().stream().filter(x->x.size() >1 ).collect(Collectors.toList());
+		System.out.println("Count of Anagrams in stream Normal version = " + anagramList.size());
+	}
+	
+	public static void findAnagramsParallelVersion(String filePath,Function<String, Map<Character, Long>> letters) throws IOException{		
+		Map<Map<Character, Long>, List<String>> map = readFile(filePath)
+				.parallel()
+				.collect(Collectors.groupingBy(letters));
+		List<List<String>> anagramList =  map.values().stream().filter(x->x.size() >1 ).collect(Collectors.toList());
+		System.out.println("Count of Anagrams in stream Parallel Version   = " + anagramList.size());
+	}
+
+
 }
