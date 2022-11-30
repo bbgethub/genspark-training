@@ -1,7 +1,6 @@
 package org.genspark.spring_annotation;
 
 import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 
@@ -10,7 +9,9 @@ public class Employee {
 	private int id;
 
 	private String name;
+
 	private List<Phone> ph;
+	
 	private Address add;
 
 	public int getId() {
@@ -25,12 +26,14 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public List<Phone> getPh() {
 		return ph;
 	}
 	public void setPh(List<Phone> ph) {
 		this.ph = ph;
 	}
+
 	public Address getAdd() {
 		return add;
 	}
