@@ -2,6 +2,7 @@ package org.genspart.SpringAutowireExample;
 
 public class Order {
 
+	
 	private String item;
     
     private String price;
