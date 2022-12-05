@@ -2,7 +2,9 @@
 public class StringAnagram {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		
+		//To check if two Strings are anagram in java
 		String string1="javas";
 		String string2="ajava";
 		int length1=string1.length();

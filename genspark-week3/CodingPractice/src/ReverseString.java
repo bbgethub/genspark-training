@@ -1,6 +1,7 @@
 
 public class ReverseString {
 
+	// To reverse a String in java
 	public static void main(String[] args)
 	{
 		String name="abcdefg";
@@ -23,6 +24,7 @@ public class ReverseString {
 		System.out.println("rev2 methon"+rev2("abc"));
 	}
 	
+	// To reverse a String with StringBuilder
 	public static String rev(String s) {
 		
 		char c[] = s.toCharArray();
@@ -33,7 +35,7 @@ public class ReverseString {
 		return sb.toString();
 		
 	}
-	
+	// To reverse a String with out char[] array
 	public static String rev1(String s) {		
 		//char c[] = s.toCharArray();
 		StringBuilder sb= new  StringBuilder();
@@ -43,6 +45,7 @@ public class ReverseString {
 		return sb.toString();		
 	}
 	
+	// to reverse a String with Recursion Function
 	public static String rev2(String s) {		
 		while(s.length()>1)
 		return s.substring(s.length()-1)+rev2(s.substring(0,s.length()-1));	
