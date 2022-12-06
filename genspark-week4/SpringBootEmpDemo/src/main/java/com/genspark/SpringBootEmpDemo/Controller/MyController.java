@@ -44,7 +44,7 @@ public Employee addCourse(@RequestBody Employee emp)
 	return this.employeeService.addEmployee(emp);
 	
 }
-@PutMapping("/employess/{empId}")
+@PutMapping("/employees/{empId}")
 public Employee updateCourse(@RequestBody Employee emp)
 {
 	return this.employeeService.updateEmployee(emp);

@@ -1,7 +1,17 @@
 package com.genspark.SpringBootEmpDemo.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employees_tbl")
 public class Employee {
 
+	@Id
+	@GeneratedValue( strategy = GenerationType.SEQUENCE)
 	int employeeId;
 	String employeeName;
 	String employeeEmail;
@@ -23,9 +33,7 @@ public class Employee {
 	public void setEmployeeEmail(String employeeEmail) {
 		this.employeeEmail = employeeEmail;
 	}
-	public Employee(int employeeId, String employeeName, String employeeEmail) {
-		super();
-		this.employeeId = employeeId;
+	public Employee(String employeeName, String employeeEmail) {
 		this.employeeName = employeeName;
 		this.employeeEmail = employeeEmail;
 	}

@@ -1,13 +1,21 @@
 package com.genspark.SpringBootDemoApp.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="courses_tbl")
 public class Course {
 	
-	private int courseId;
+	@Id
+	@GeneratedValue( strategy = GenerationType.SEQUENCE)
+	private int c_Id;
 	private String title;
 	private String instructor;
-	public Course(int courseId, String title, String instructor) {
-		super();
-		this.courseId = courseId;
+	public Course(String title, String instructor) {
 		this.title = title;
 		this.instructor = instructor;
 	}
@@ -15,10 +23,10 @@ public class Course {
 		
 	}
 	public int getCourseId() {
-		return courseId;
+		return c_Id;
 	}
 	public void setCourseId(int courseId) {
-		this.courseId = courseId;
+		this.c_Id = courseId;
 	}
 	public String getTitle() {
 		return title;
@@ -31,6 +39,10 @@ public class Course {
 	}
 	public void setInstructor(String instructor) {
 		this.instructor = instructor;
+	}
+	public void get() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
