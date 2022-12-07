@@ -35,7 +35,16 @@ public List<Employee> getEmployees()
 @GetMapping("/employee/{empId}")
 public Employee getEmployeeDetails(@PathVariable String empId)
 {
-	return this.employeeService.getEmployeeById(Integer.parseInt(empId));
+	Employee emp = null;
+	int intEmpId=0;
+	try{
+		intEmpId = Integer.parseInt(empId);
+		emp=this.employeeService.getEmployeeById(intEmpId);
+	}catch (NumberFormatException e) {
+		System.out.println("Input String cannot be parsed to Integer.");
+	}
+	return emp;
+
 }
 
 @PostMapping("/employees")
@@ -50,7 +59,7 @@ public Employee updateCourse(@RequestBody Employee emp)
 	return this.employeeService.updateEmployee(emp);
 }
 
-@DeleteMapping("/employess/{empId}")
+@DeleteMapping("/employees/{empId}")
 public String deleteCourse(@PathVariable String empId)
 {
 	return this.employeeService.deleteEmployee(Integer.parseInt(empId));
