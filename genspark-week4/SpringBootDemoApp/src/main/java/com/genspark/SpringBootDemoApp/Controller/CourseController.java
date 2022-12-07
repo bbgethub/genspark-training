@@ -15,7 +15,7 @@ import com.genspark.SpringBootDemoApp.Entity.Course;
 import com.genspark.SpringBootDemoApp.Service.CourseService;
 
 @RestController
-public class MyController {
+public class CourseController {
 	
 	@Autowired
 	private CourseService courseService; 
