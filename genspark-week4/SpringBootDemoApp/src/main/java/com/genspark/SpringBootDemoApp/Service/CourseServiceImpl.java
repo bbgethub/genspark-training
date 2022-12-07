@@ -1,6 +1,5 @@
 package com.genspark.SpringBootDemoApp.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +28,7 @@ public class CourseServiceImpl implements CourseService {
 				
 				course=c.get();
 			else 
-				throw new RuntimeException("Couser not found or this id:"+courseId);
+				throw new RuntimeException("Course not found or this id:"+courseId);
 				
 			return course;
 	}
