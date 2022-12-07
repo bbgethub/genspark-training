@@ -29,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 			if(e.isPresent())
 				emp=e.get();
 			else
-				throw new RuntimeException("Couser not found or this id:"+employeeId);
+				throw new RuntimeException("Employee not found or this id:"+employeeId);
 		return emp;
 	}
 

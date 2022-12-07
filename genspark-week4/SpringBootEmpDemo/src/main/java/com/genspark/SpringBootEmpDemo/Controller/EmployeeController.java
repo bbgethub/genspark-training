@@ -15,7 +15,7 @@ import com.genspark.SpringBootEmpDemo.Entity.Employee;
 import com.genspark.SpringBootEmpDemo.Service.EmployeeService;
 
 @RestController
-public class MyController {
+public class EmployeeController {
 
 @Autowired
 private EmployeeService employeeService;
@@ -40,8 +40,10 @@ public Employee getEmployeeDetails(@PathVariable String empId)
 	try{
 		intEmpId = Integer.parseInt(empId);
 		emp=this.employeeService.getEmployeeById(intEmpId);
-	}catch (NumberFormatException e) {
+	}catch (NumberFormatException nfe) {
 		System.out.println("Input String cannot be parsed to Integer.");
+		// Intentionally throwing NFE to learn assertthrows
+		throw nfe;
 	}
 	return emp;
 
