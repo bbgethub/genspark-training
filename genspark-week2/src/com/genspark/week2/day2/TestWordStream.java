@@ -99,7 +99,7 @@ public class TestWordStream {
 			e.printStackTrace();
 		}
 	}
-	
+	//Reading file and convert to String Stream
 	public static Stream<String> readFile(String s) throws IOException{		
 		Stream<String> stream = Files.lines(Paths.get(s));
 		return stream;	

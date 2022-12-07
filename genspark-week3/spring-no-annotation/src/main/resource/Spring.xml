@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="phone1" class=" org.genspark.spring_no_annotation.Phone">
+    	<constructor-arg index="0" value="6143076364"/>
+    </bean>
+    <bean id="phone2" class=" org.genspark.spring_no_annotation.Phone">
+    	<constructor-arg index="0" value="6146146144"/>
+    </bean>
+    
+<bean id="phoneList" class="java.util.ArrayList">
+    <constructor-arg>
+        <list>
+            <ref bean="phone1" />
+            <ref bean="phone2" />                
+        </list>
+    </constructor-arg>
+</bean>
+    
+       <bean id="address" class=" org.genspark.spring_no_annotation.Address">
+    	<constructor-arg index="0" value="Powel"/>
+  		<constructor-arg index="1" value="Columbus"/>
+  		<constructor-arg index="2" value="USA"/>
+  		<constructor-arg index="3" value="34032"/>
+    </bean>
+ 
+    <bean id="student" class=" org.genspark.spring_no_annotation.Student">
+        <constructor-arg index="0" value="111"></constructor-arg>
+        <constructor-arg index="1" value="Bharathi"></constructor-arg>
+        <constructor-arg index="2" ref="phoneList"></constructor-arg>
+          <constructor-arg index="3" ref="address"></constructor-arg>
+        
+    </bean>
+
+
+
+</beans>
