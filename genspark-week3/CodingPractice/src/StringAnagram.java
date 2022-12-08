@@ -5,7 +5,7 @@ public class StringAnagram {
 
 		
 		//To check if two Strings are anagram in java
-		String string1="javas";
+		String string1="javaa";
 		String string2="ajava";
 		int length1=string1.length();
 		if(length1!=string2.length())

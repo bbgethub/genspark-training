@@ -19,7 +19,7 @@ public class FindPermutation {
 		}
 
 	}
-
+//Find Permutation of String using recursion
 	public static void permutaion(String string1, String result )
 	{
 		
