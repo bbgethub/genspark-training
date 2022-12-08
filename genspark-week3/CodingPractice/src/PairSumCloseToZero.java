@@ -32,7 +32,7 @@ public class PairSumCloseToZero {
 				
 			}
 		}
-		System.out.println("First namber is:"+list.get(firstIndex));
+		System.out.println("First number is:"+list.get(firstIndex));
 		System.out.println("Second number is: "+list.get(secondIndex));
 	}
 

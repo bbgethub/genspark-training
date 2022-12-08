@@ -1,8 +1,8 @@
 package com.genspark.SpringBootEmpDemo.Controller;
 
 
+import com.genspark.SpringBootEmpDemo.Entity.Employee;
 import com.genspark.SpringBootEmpDemo.Service.EmployeeService;
-import  com.genspark.SpringBootEmpDemo.Entity.Employee;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,10 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(MockitoExtension.class)
-class MyControllerTest {
+class EmployeeControllerTest {
 
     @BeforeEach
     void setUp() {
@@ -34,7 +32,7 @@ class MyControllerTest {
     private EmployeeService mockEmployeeService;
 
     @InjectMocks
-    MyController mockMyController;
+    EmployeeController mockEmployeeController;
     
     @Test
     public void getEmployeesTest1()
@@ -47,7 +45,7 @@ class MyControllerTest {
         // This has to be done prior to actual method call
         Mockito.when(mockEmployeeService.getAllEmployee()).thenReturn(testEmployees);
         // Actual method call
-        List<Employee> employees=mockMyController.getEmployees();
+        List<Employee> employees= mockEmployeeController.getEmployees();
         // assert the  employees retrieved from the actual call is not null
         Assertions.assertNotNull(employees);
         // assert the  employees size retrieved from the actual call is what we expected.
@@ -62,7 +60,7 @@ class MyControllerTest {
         // This has to be done prior to actual method call
         Mockito.when(mockEmployeeService.getAllEmployee()).thenReturn(testEmployees);
         // Actual method call
-        List<Employee> employees=mockMyController.getEmployees();
+        List<Employee> employees= mockEmployeeController.getEmployees();
         // assert the  employees retrieved from the actual call is  null
         Assertions.assertTrue(employees.isEmpty());
         // assert the  employees size retrieved from the actual call is what we expected.
@@ -74,7 +72,7 @@ class MyControllerTest {
     {
         Employee testEmployee=new Employee("name1","name1@email.com");
         Mockito.when(mockEmployeeService.getEmployeeById(ArgumentMatchers.anyInt())).thenReturn(testEmployee);
-        Employee employee=mockMyController.getEmployeeDetails("1111");
+        Employee employee= mockEmployeeController.getEmployeeDetails("1111");
         Assertions.assertNotNull(employee);
         Assertions.assertEquals(testEmployee.getEmployeeName(),employee.getEmployeeName());
     }
@@ -83,10 +81,12 @@ class MyControllerTest {
     public void getEmployeeByIdTestWithincorrectnumberformat()
     {
         Employee testEmployee=new Employee("name1","name1@email.com");
-        Mockito.when(mockEmployeeService.getEmployeeById(ArgumentMatchers.anyInt())).thenReturn(testEmployee);
-        Employee employee=mockMyController.getEmployeeDetails("#");
-        Assertions.assertThrows(NumberFormatException.class,() -> employee.getEmployeeId());
 
+//        Employee employee=mockMyController.getEmployeeDetails("#");
+        Exception thrown = Assertions.assertThrows(NumberFormatException.class,() -> {
+            mockEmployeeController.getEmployeeDetails("#");
+        });
+        Assertions.assertTrue(thrown.getMessage().contains("#"));
     }
 
 }
