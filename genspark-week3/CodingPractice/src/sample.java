@@ -10,8 +10,8 @@ public class sample {
 		// TODO Auto-generated method stub
 		List<Integer> array1=new ArrayList<>();
 		array1.add(1);
+		array1.add(2);
 		array1.add(3);
-		array1.add(4);
 		array1.add(5);
 		List<Integer> array2=new ArrayList<>();
 		array2.add(3);
@@ -37,6 +37,8 @@ public class sample {
 				if(flag==1)
 					break;
 			}
+		Fibonacci(7);
+		System.out.println("Factorial: "+ factorial(4));
 	}
 	
 	public static int orderArray(List<Integer> arr)
@@ -58,7 +60,7 @@ public class sample {
 	{
 		int result[]=new int[arr.size()];
 		List<Integer> resultList=new ArrayList<>();
-		for(int s=0;s<arr.size();s++)
+	for(int s=0;s<arr.size();s++)
 		{
 			System.out.println(arr.get(s));
 			result[s]=arr.get(s);
@@ -75,5 +77,30 @@ public class sample {
 			resultList.add(result[i]);
 		return resultList;
 	}
+	
+	public static void Fibonacci(int n)
+	{
+		int j=0,k=1,sum=0;
+		System.out.print(j+" ");
+		for(int i=1;i<n;i++)
+		{
+			System.out.print(sum+" ");
+			sum=j+k;
+			k=j;
+			j=sum;
+			
+			
+		}
+	}
+	
+	public static long factorial(int n)
+	{
+		if(n>=1)
+			return n*factorial(n-1);
+		else
+			return 1;
+		
+	}
+	
 
 }
