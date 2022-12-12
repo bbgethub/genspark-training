@@ -4,21 +4,25 @@ import com.genspark.CareerCenter.controller.entity.Candidate;
 import com.genspark.CareerCenter.service.CandidateService;
 import com.genspark.CareerCenter.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class CandidateController {
         @Autowired
         CandidateService candidateService;
         
         
+
         @RequestMapping(value="/candidates", method=RequestMethod.POST)
-        public Candidate createCandidate(@RequestBody Candidate candidate) {
-            return candidateService.createCandidate(candidate);
+        public Candidate createCandidate(@RequestPart("candidateName") String candidateName, @RequestPart("candidateCV") MultipartFile candidateCV)throws IOException {
+            Candidate candidate=candidateService.createCandidate(candidateName,candidateCV);
+            return candidate;
         }
         
         @RequestMapping(value="/candidates", method=RequestMethod.GET)

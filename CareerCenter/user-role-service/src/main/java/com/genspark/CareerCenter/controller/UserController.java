@@ -19,15 +19,15 @@ import com.genspark.CareerCenter.service.UserService;
 public class UserController {
         @Autowired
         UserService userService;
-        
-        
+
+
         @RequestMapping(value="/user", method=RequestMethod.POST)
-        public User createUser(@RequestBody User emp) {
-            return userService.createUser(emp);
+        public User createUser(@RequestBody User user) {
+            return userService.createUser(user);
         }
         
         @RequestMapping(value="/users", method=RequestMethod.GET)
-        public List<User> readUsers() {
+        public List<String> readUsers() {
             return userService.getUser();
         }
 

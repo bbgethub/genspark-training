@@ -1,12 +1,16 @@
 package com.genspark.CareerCenter.controller.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "candidate_tbl")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Candidate {
         
         @Id
@@ -22,6 +26,7 @@ public class Candidate {
         @Getter
         @Setter
         @Column(name="candidate_cv")
-        private String candidateCV;
+        @Lob
+        private byte[] candidateCV;
 
 }

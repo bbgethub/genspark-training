@@ -11,11 +11,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "company_tbl")
+@Table(name = "company_tbl1")
 public class Company {
         
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE)
         @Column(name="company_id")
             private Long id;
         
