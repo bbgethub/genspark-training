@@ -25,8 +25,8 @@ import com.genspark.CareerCenter.repository.CompanyRepository;
 	        }
 
 	        // DELETE
-	        public void deleteCompany(Long empId) {
-	            companyRepository.deleteById(empId);
+	        public void deleteCompany(Long companyId) {
+	            companyRepository.deleteById(companyId);
 	        }
 	        
 	     // UPDATE

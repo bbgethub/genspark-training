@@ -1,6 +1,4 @@
 package com.genspark.CareerCenter.service;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.genspark.CareerCenter.controller.entity.Candidate;
 import com.genspark.CareerCenter.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,22 +25,27 @@ import java.util.List;
 	        }
 
 	        // READ
-	        public List<Candidate> getCompanies() {
+	        public List<Candidate> getCandidates() {
 	            return candidateRepository.findAll();
 	        }
 
 	        // DELETE
-	        public void deleteCompany(Long candidateId) {
+	        public void deleteCandidate(Long candidateId) {
 	            candidateRepository.deleteById(candidateId);
 	        }
 	        
 	     // UPDATE
-	        public Candidate updateCompany(Long candidateId, Candidate candidateDetails) {
+	        public Candidate updateCandidate(Long candidateId, Candidate candidateDetails) {
 				Candidate candidate = candidateRepository.findById(candidateId).get();
 				candidate.setCandidateName(candidateDetails.getCandidateName());
 				candidate.setCandidateCV(candidateDetails.getCandidateCV());
 	                
 	                return candidateRepository.save(candidate);
 	        }
+
+	public Candidate findCandidateById(Long id) {
+		Candidate candidate = candidateRepository.findById(id).get();
+		return candidate;
 	}
+}
 
