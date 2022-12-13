@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: gateway-service
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: USER-ROLE-SERVICE
+          uri: lb://USER-ROLE-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: JOB-CANDIDATE-COMPANY-SERVICE
+          uri: lb://JOB-CANDIDATE-COMPANY-SERVICE
+          predicates:
+            - Path=/candidate/**
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+
+eureka:
+  client:
+    eureka-server-connect-timeout-seconds: 5
+    enabled: true
+    fetch-registry: false
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://eureka-1-server.com:8761/eureka
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+
+server:
+  port: 8765

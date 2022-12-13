@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/candidate/api")
 public class CandidateController {
         @Autowired
         CandidateService candidateService;
