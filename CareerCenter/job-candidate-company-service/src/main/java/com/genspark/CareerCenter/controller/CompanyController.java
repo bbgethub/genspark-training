@@ -15,7 +15,7 @@ import com.genspark.CareerCenter.service.CompanyService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/career/api")
 public class CompanyController {
         @Autowired
         CompanyService companyService;
@@ -30,6 +30,10 @@ public class CompanyController {
         public List<Company> readCompanies() {
             return companyService.getCompanies();
         }
+         @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
+         public Company readCompany(@PathVariable(value="CompanyId")Long id) {
+        return companyService.getCompany(id);
+    }
 
         @RequestMapping(value="/company/{companyId}", method=RequestMethod.PUT)
         public Company readCompanies(@PathVariable(value = "companyId") Long id, @RequestBody Company companyDetails) {

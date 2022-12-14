@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.genspark</groupId>
-	<artifactId>user-role-service</artifactId>
+	<artifactId>job-candidate-company-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user-role-service</name>
+	<name>job-candidate-company-service</name>
 	<description>Apis for user and role</description>
 	<properties>
 		<java.version>11</java.version>

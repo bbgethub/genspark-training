@@ -35,10 +35,10 @@ import java.util.List;
 	        }
 	        
 	     // UPDATE
-	        public Candidate updateCandidate(Long candidateId, Candidate candidateDetails) {
+	        public Candidate updateCandidate(Long candidateId,String candidateName, MultipartFile candidateCV) throws IOException{
 				Candidate candidate = candidateRepository.findById(candidateId).get();
-				candidate.setCandidateName(candidateDetails.getCandidateName());
-				candidate.setCandidateCV(candidateDetails.getCandidateCV());
+				candidate.setCandidateName(candidateName);
+				candidate.setCandidateCV(candidateCV.getBytes());
 	                
 	                return candidateRepository.save(candidate);
 	        }

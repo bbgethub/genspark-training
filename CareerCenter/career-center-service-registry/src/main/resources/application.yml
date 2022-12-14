@@ -3,7 +3,7 @@ spring:
   application:
   name: eureka-server-clustered
 server:
-  port: 8761
+  port: 8760
 eureka:
   instance:
     hostname: eureka-1-server.com

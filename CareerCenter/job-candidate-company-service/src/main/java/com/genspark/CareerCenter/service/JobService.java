@@ -23,6 +23,11 @@ import java.util.List;
 	            return jobRepository.findAll();
 	        }
 
+			public Job getJob(Long jobId){
+				Job job=jobRepository.findById(jobId).get();
+				return job;
+			}
+
 	        // DELETE
 	        public void deleteJob(Long empId) {
 	            jobRepository.deleteById(empId);

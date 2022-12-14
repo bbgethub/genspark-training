@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/career/api")
 public class JobController {
         @Autowired
         JobService jobService;
@@ -20,9 +20,14 @@ public class JobController {
         }
         
         @RequestMapping(value="/jobs", method=RequestMethod.GET)
-        public List<Job> readJob() {
+        public List<Job> readJobs() {
             return jobService.getJobs();
         }
+
+        @RequestMapping(value="/job/{jobId}", method=RequestMethod.GET)
+        public Job readJob(@PathVariable(value="jobId") Long id) {
+        return jobService.getJob(id);
+    }
 
         @RequestMapping(value="/job/{jobId}", method=RequestMethod.PUT)
         public Job readJob(@PathVariable(value = "jobId") Long id, @RequestBody Job jobDetails) {

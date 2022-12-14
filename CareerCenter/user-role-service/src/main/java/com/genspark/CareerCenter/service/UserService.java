@@ -23,12 +23,13 @@ import com.genspark.CareerCenter.repository.UserRepository;
 	        }
 
 	        // READ
-	        public List<String> getUser() {
+	        public List<String> getUsers() {
 				log.info("Inside getUser of UserService");
 	            List<User> user =userRepository.findAll();
 				List<String> userId=user.stream().map(id->id.getId().toString()).collect(Collectors.toList());
 				return userId;
 	        }
+
 
 	        // DELETE
 	        public void deleteUser(Long empId) {

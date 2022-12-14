@@ -23,7 +23,11 @@ import com.genspark.CareerCenter.repository.CompanyRepository;
 	        public List<Company> getCompanies() {
 	            return companyRepository.findAll();
 	        }
-
+			public Company getCompany(Long companyId)
+			{
+				Company company=companyRepository.findById(companyId).get();
+				return company;
+			}
 	        // DELETE
 	        public void deleteCompany(Long companyId) {
 	            companyRepository.deleteById(companyId);

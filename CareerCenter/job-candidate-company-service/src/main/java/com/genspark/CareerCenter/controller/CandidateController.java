@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 @Slf4j
 @RestController
-@RequestMapping("/candidate/api")
+@RequestMapping("/career/api")
 public class CandidateController {
         @Autowired
         CandidateService candidateService;
@@ -28,20 +28,22 @@ public class CandidateController {
         }
         
         @RequestMapping(value="/candidates", method=RequestMethod.GET)
-        public List<Candidate> readCandidates() {
+        public List<Candidate> readCandidates() throws Exception{
             log.info("Inside readCandidates of CandidateController ");
+        //    Thread.sleep(5000);
+       //     log.info("Inside readCandidates of CandidateController 2 ");
         return candidateService.getCandidates();
         }
 
         @RequestMapping(value="/candidate/{candidateId}", method=RequestMethod.GET)
-        public Candidate readByCandidateId(@RequestParam(value= "candidateId", defaultValue="1") Long id){
+        public Candidate readByCandidateId(@PathVariable(value= "candidateId") Long id){
             log.info("Inside readByCandidateId of CandidateController ");
             return candidateService.findCandidateById(id);
         }
         @RequestMapping(value="/candidate/{candidateId}", method=RequestMethod.PUT)
-        public Candidate readCandidate(@PathVariable(value = "candidateId") Long id, @RequestBody Candidate candidateDetails) {
+        public Candidate readCandidate(@PathVariable(value = "candidateId") Long id, @RequestPart("candidateName") String candidateName,@RequestPart("candidateCV") MultipartFile candidateCV)throws IOException {
             log.info("Inside readCandidate of CandidateController ");
-            return candidateService.updateCandidate(id, candidateDetails);
+            return candidateService.updateCandidate(id,candidateName,candidateCV);
         }
 
         @RequestMapping(value="/candidate/{candidateId}", method=RequestMethod.DELETE)

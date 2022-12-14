@@ -13,11 +13,27 @@ spring:
         - id: JOB-CANDIDATE-COMPANY-SERVICE
           uri: lb://JOB-CANDIDATE-COMPANY-SERVICE
           predicates:
-            - Path=/candidate/**
+            - Path=/career/**
+          filters:
+#            - RewritePath=/candidate/(?<segment>.*),/api/$\{segment}
+            - name: CircuitBreaker
+              args:
+                name: careerCenterError
+                fallbackUri: forward:/errorbreaker
+            - name: CircuitBreaker
+              args:
+                name: careerCenterResponseTime
+                fallbackUri: forward:/timebreaker
       httpclient:
         wiretap: true
       httpserver:
         wiretap: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=gateway:
 
 eureka:
   client:
@@ -39,3 +55,20 @@ logging:
 
 server:
   port: 8765
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      careerCenterError:
+        slidingWindowSize: 5                     #unit request
+        permittedNumberOfCallsInHalfOpenState: 5  #unit request
+        failureRateThreshold: 50                  #percent
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 20000
+        waitDurationInOpenState: 10000            #10 seconds
+        registerHealthIndicator: true
+  timelimiter:
+    instances:
+      careerCenterResponseTime:
+        timeoutDuration: 2s
