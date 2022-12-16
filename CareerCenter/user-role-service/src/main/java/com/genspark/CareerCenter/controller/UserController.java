@@ -16,7 +16,7 @@ import com.genspark.CareerCenter.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("user/api")
+@RequestMapping("/user/api")
 @Slf4j
 public class UserController {
         @Autowired
@@ -30,7 +30,7 @@ public class UserController {
         }
         
         @RequestMapping(value="/users", method=RequestMethod.GET)
-        public List<String> readUsers() {
+        public List<User> readUsers() {
             log.info("Inside readUsers in UserController");
             return userService.getUsers();
         }

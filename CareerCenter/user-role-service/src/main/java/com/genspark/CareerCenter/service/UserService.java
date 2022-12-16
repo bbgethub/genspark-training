@@ -23,11 +23,11 @@ import com.genspark.CareerCenter.repository.UserRepository;
 	        }
 
 	        // READ
-	        public List<String> getUsers() {
+	        public List<User> getUsers() {
 				log.info("Inside getUser of UserService");
 	            List<User> user =userRepository.findAll();
-				List<String> userId=user.stream().map(id->id.getId().toString()).collect(Collectors.toList());
-				return userId;
+				//List<String> userId=user.stream().map(id->id.getId().toString()).collect(Collectors.toList());
+				return user;
 	        }
 
 
@@ -42,6 +42,8 @@ import com.genspark.CareerCenter.repository.UserRepository;
 				log.info("Inside updateUser of UserService");
 	                User user = userRepository.findById(userId).get();
 	                user.setPassword(userDetails.getPassword());
+					user.setPassword(userDetails.getName());
+					user.setPassword(userDetails.getRoleName());
 	                return userRepository.save(user);
 	        }
 	}

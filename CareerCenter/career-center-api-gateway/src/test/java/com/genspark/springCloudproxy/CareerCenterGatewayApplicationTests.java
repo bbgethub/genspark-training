@@ -1,4 +1,4 @@
-package com.genspark.zuulgatewayproxy;
+package com.genspark.springCloudproxy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -9,6 +9,14 @@ spring:
         - id: USER-ROLE-SERVICE
           uri: lb://USER-ROLE-SERVICE
           predicates:
+            - Path=/auth/**
+        - id: USER-ROLE-SERVICE
+          uri: lb://USER-ROLE-SERVICE
+          predicates:
+            - Path=/role/**
+        - id: USER-ROLE-SERVICE
+          uri: lb://USER-ROLE-SERVICE
+          predicates:
             - Path=/user/**
         - id: JOB-CANDIDATE-COMPANY-SERVICE
           uri: lb://JOB-CANDIDATE-COMPANY-SERVICE
@@ -28,12 +36,16 @@ spring:
         wiretap: true
       httpserver:
         wiretap: true
-
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
 management:
   endpoints:
     web:
       exposure:
         include=gateway:
+jwt:
+  secret: secretkey
 
 eureka:
   client:

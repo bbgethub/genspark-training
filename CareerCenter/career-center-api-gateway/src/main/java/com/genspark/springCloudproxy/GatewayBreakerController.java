@@ -1,4 +1,4 @@
-package com.genspark.zuulgatewayproxy;
+package com.genspark.springCloudproxy;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
