@@ -15,12 +15,12 @@ import lombok.Setter;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name="role_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
 
     @Getter
     @Setter
-    @Column(name="role_name")
+    @Column(name="name")
     private String roleName;
 }

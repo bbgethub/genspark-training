@@ -1,0 +1,17 @@
+USE [tempdb]
+GO
+
+USE [tempdb]
+GO
+
+/****** Object:  Sequence [dbo].[user_id]    Script Date: 12/16/2022 1:52:17 PM ******/
+CREATE SEQUENCE [dbo].[user_id]
+ AS [bigint]
+ START WITH 1
+ INCREMENT BY 1
+ MINVALUE -9223372036854775808
+ MAXVALUE 9223372036854775807
+ CACHE
+GO
+
+
