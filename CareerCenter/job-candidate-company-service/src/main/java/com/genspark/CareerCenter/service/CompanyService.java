@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.genspark.CareerCenter.controller.entity.Company;
+import com.genspark.CareerCenter.entity.Company;
 import com.genspark.CareerCenter.repository.CompanyRepository;
 @Slf4j
 @Service

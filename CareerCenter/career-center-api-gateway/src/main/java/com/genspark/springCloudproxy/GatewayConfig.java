@@ -15,10 +15,10 @@ public class GatewayConfig {
 
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
-        return builder.routes().route("auth", r -> r.path("/auth/**").filters(f -> f.filter(filter)).uri("lb://auth"))
-                .route("user", r -> r.path("/user/**").filters(f -> f.filter(filter)).uri("lb://user"))
-                .route("role", r -> r.path("/role/**").filters(f -> f.filter(filter)).uri("lb://role"))
-                .route("career", r -> r.path("/career/**").filters(f -> f.filter(filter)).uri("lb://career")).build();
+        return builder.routes().route("USER-ROLE-SERVICE", r -> r.path("/auth/**").filters(f -> f.filter(filter)).uri("lb://USER-ROLE-SERVICE"))
+                .route("USER-ROLE-SERVICE", r -> r.path("/user/**").filters(f -> f.filter(filter)).uri("lb://USER-ROLE-SERVICE"))
+                .route("USER-ROLE-SERVICE", r -> r.path("/role/**").filters(f -> f.filter(filter)).uri("lb://USER-ROLE-SERVICE"))
+                .route("JOB-CANDIDATE-COMPANY-SERVICE", r -> r.path("/career/**").filters(f -> f.filter(filter)).uri("lb://JOB-CANDIDATE-COMPANY-SERVICE")).build();
     }
 
 }

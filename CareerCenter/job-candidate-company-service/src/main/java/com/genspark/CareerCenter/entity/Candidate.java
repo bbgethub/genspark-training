@@ -1,4 +1,4 @@
-package com.genspark.CareerCenter.controller.entity;
+package com.genspark.CareerCenter.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,17 +15,17 @@ public class Candidate {
         
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name="candidate_id")
+        @Column(name="id")
             private Long id;
         
         @Getter
         @Setter
-        @Column(name="candidate_name")
+        @Column(name="name")
         private String candidateName;
         
         @Getter
         @Setter
-        @Column(name="candidate_cv")
+        @Column(name="cv")
         @Lob
         private byte[] candidateCV;
 

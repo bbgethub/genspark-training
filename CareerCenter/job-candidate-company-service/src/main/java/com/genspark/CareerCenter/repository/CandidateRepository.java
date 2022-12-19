@@ -1,6 +1,6 @@
 package com.genspark.CareerCenter.repository;
 
-import com.genspark.CareerCenter.controller.entity.Candidate;
+import com.genspark.CareerCenter.entity.Candidate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

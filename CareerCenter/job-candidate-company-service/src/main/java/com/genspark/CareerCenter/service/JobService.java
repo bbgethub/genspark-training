@@ -1,6 +1,6 @@
 package com.genspark.CareerCenter.service;
 
-import com.genspark.CareerCenter.controller.entity.Job;
+import com.genspark.CareerCenter.entity.Job;
 import com.genspark.CareerCenter.repository.JobRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
