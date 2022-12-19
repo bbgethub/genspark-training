@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing.. #####################'
-                c:\apache-maven-3.8.6\bin\mvn test
+                c:/apache-maven-3.8.6/bin/mvn test
             }
         }
         stage('Deploy') {
