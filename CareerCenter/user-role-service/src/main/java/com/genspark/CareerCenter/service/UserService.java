@@ -43,7 +43,7 @@ import com.genspark.CareerCenter.repository.UserRepository;
 	                User user = userRepository.findById(userId).get();
 	                user.setPassword(userDetails.getPassword());
 					user.setPassword(userDetails.getName());
-					user.setPassword(userDetails.getRoleName());
+					user.setPassword(userDetails.getRoleId());
 	                return userRepository.save(user);
 	        }
 	}

@@ -10,8 +10,8 @@ import lombok.Setter;
 public class User {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO, generator = "generator")
-        @SequenceGenerator(name="generator", sequenceName="user_id", allocationSize = 1)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+      //  @SequenceGenerator(name="generator", sequenceName="user_id", allocationSize = 1)
         @Column(name="id")
         @Getter
         private Long id;
@@ -23,8 +23,8 @@ public class User {
 
         @Getter
         @Setter
-        @Column(name="role_name")
-        private String roleName;
+        @Column(name="role_id")
+        private String roleId;
 
 
         @Getter

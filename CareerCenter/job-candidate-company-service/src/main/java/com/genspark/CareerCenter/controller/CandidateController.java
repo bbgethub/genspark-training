@@ -1,6 +1,6 @@
 package com.genspark.CareerCenter.controller;
 
-import com.genspark.CareerCenter.controller.entity.Candidate;
+import com.genspark.CareerCenter.entity.Candidate;
 import com.genspark.CareerCenter.repository.CandidateRepository;
 import com.genspark.CareerCenter.service.CandidateService;
 import lombok.extern.slf4j.Slf4j;

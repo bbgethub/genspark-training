@@ -1,4 +1,4 @@
-package com.genspark.CareerCenter.controller.entity;
+package com.genspark.CareerCenter.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,22 +11,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "company_tbl1")
+@Table(name = "company_tbl")
 public class Company {
         
         @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        @Column(name="company_id")
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name="id")
             private Long id;
         
         @Getter
         @Setter
-        @Column(name="company_name")
+        @Column(name="name")
         private String companyName;
         
         @Getter
         @Setter
-        @Column(name="company_address")
+        @Column(name="address")
         private String companyAddress;
 
 }

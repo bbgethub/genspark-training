@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[user_tbl](
 	[id] [int]  NOT NULL,
 	[name] [varchar](50) NOT NULL,
 	[password] [varchar](50) NOT NULL,
-	[role_name] [varchar](50) NOT NULL
+	[role_id] [varchar](50) NOT NULL
 ) ON [PRIMARY]
 GO
 

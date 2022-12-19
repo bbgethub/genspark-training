@@ -1,6 +1,6 @@
 package com.genspark.CareerCenter.controller;
 
-import com.genspark.CareerCenter.controller.entity.Candidate;
+import com.genspark.CareerCenter.entity.Candidate;
 import com.genspark.CareerCenter.service.CandidateService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +12,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.FileInputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
