@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..##################'
                 cd genspark-training/CareerCenter/job-candidate-company-service
-                mvn clean install -DskipTests
+                bat mvninstall.bat
                     }
         }
         stage('Test') {
