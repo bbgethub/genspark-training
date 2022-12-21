@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..##################'
-                bat """ CareerCenter\\job-candidate-company-service\\mvninstall.bat """
+                bat """ cd CareerCenter\\job-candidate-company-service"""
+                bat """mvninstall.bat """
                     }
         }
         stage('Test') {
