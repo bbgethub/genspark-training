@@ -1,2 +1,1 @@
-cd genspark-training/CareerCenter/job-candidate-company-service
-mvn clean install -DskipTests
+c:\apache-maven-3.8.6\bin\mvn clean install -DskipTests
