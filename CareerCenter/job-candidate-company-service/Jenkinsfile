@@ -5,16 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..##################'
-                cd genspark-training/CareerCenter/job-candidate-company-service
-                c:\\apache-maven-3.8.6\\bin\\mvn clean install -DskipTests
-
-            }
+                bat """CareerCenter\\job-candidate-company-service\\mvninstall.bat """
+                    }
         }
         stage('Test') {
             steps {
                 echo 'Testing.. #####################'
-                c:\apache-maven-3.8.6\bin\mvn test
-            }
+                bat """CareerCenter\\job-candidate-company-service\\mvntest.bat """
+                    }
         }
         stage('Deploy') {
             steps {
