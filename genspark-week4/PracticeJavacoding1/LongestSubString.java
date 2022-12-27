@@ -34,7 +34,7 @@ public class LongestSubString {
 //            }
 //        }
 //        System.out.println("Longest substring: "+result);
-        longest("abcabcbb");
+        longest("abbcabdcbb");
     }
 //abbca
     public static String longest(String s){
