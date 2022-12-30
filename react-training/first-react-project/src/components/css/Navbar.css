@@ -36,7 +36,7 @@
     position: relative;
     list-style-type: none;
     display: flex;
-    height: inherit;
+    height: 100%;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -48,6 +48,7 @@
     letter-spacing: 0.5px;
     transition: 0.3s linear;
 }
+
 .navbar ul li:hover a,
 .navbarul li.active a{
     background: #fff;
