@@ -1,6 +1,11 @@
-const App =() =>
-{
-  return(<div>App Content</div>)
-}
+import Header from './Header';
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
+};
 
 export default App;

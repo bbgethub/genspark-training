@@ -1,10 +1,22 @@
 export const menuItems = [
-    {
-      title: 'For Companies',
-      url: '/companies',
-    },
-    {
-      title: 'Login/Register',
-      url: '/login-register',
-    },
-  ];
+  // ...
+  {
+    title: 'Services',
+    url: '/services',
+    submenu: [
+      {
+        title: 'web design',
+        url: 'web-design',
+      },
+      {
+        title: 'web development',
+        url: 'web-dev',
+      },
+      {
+        title: 'SEO',
+        url: 'seo',
+      },
+    ],
+  },
+  // ...
+];

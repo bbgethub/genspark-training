@@ -1,0 +1,151 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+}
+
+header
+{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('laptop_image.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-menu{
+    float:right;
+    list-style: none;
+    margin-top: 30px;
+}
+
+.nav-menu li{
+    display: inline-block;
+}
+
+.nav-menu li a{
+    color:aliceblue;
+    text-decoration:none;
+    padding: 5px 20px;
+    font-family: Verdana,Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.nav-menu li a:hover{
+    border: 1px solid gray;
+    background-color: rgb(254, 184, 184);
+}
+
+.homebtn a{
+    border: 1px solid gray;
+    background-color: rgb(254, 184, 184);
+}
+.loginbox{
+    width: 340px;
+    height: 420px;
+    background: rgb(246, 198, 198);
+    color: #fff;
+    top:50%;
+    left:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.loginbox h1{
+    margin:0;
+    padding: 0,0,20px;
+    text-align: center;
+    font-size: 30px;
+}
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.loginbox input{
+    width:100%;
+    margin-bottom: 20px;
+}
+.loginbox input[type="text"],input[type="password"]
+{
+    border:none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline:none;
+    height:40px;
+    color:#fff;
+    font-size: 16px;
+}
+
+.loginbox input[type="submit"]
+{
+    border:none;
+    outline:none;
+    height: 40px;
+    background:#4f4d4d;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #0f0e0e;
+    color:rgb(186, 91, 91);
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color:rgb(49, 46, 46)
+}
+.loginbox a:hover{
+    color:white;
+}
+.lostpwd{
+    width: 350px;
+    height: 200px;
+    background: rgb(246, 198, 198);
+    color: #fff;
+    top:50%;
+    left:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.lostpwd input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #0f0e0e;
+    color:rgb(186, 91, 91);
+}
+.lostpwd input[type="email"]
+{
+    border:none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline:none;
+    height:40px;
+    color:#fff;
+    font-size: 16px;
+}
+.lostpwd input[type="submit"]
+{
+    border:none;
+    outline:none;
+    height: 30px;
+    width: 70px;
+    background:#4f4d4d;
+    color:#fff;
+    font-size: 14px;
+    border-radius: 5px;
+    align-self: center;
+}
+.lostpwd p{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
