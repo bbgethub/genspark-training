@@ -7,8 +7,6 @@ export const Demo = () => {
     function click_handle()
     {
         setindex(index+1);
-        if(index>=sculptureList.length)
-          setindex(0);
     }
     function click_prev()
     {
