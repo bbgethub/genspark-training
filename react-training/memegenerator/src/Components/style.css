@@ -1,4 +1,4 @@
-.main{
+.main-class{
     padding: 30px;
 }
 .header{
@@ -26,6 +26,7 @@
     display: grid;
     grid-template:40px 40px/1fr 1fr;
     gap: 17px;
+    margin-bottom: 17px;
 }
 .form--button{
     grid-column: 1/-1;
@@ -36,9 +37,14 @@
     border: none;
     cursor: pointer;
 }
-.form--inputs{
+.form--input{
     font-family: "Karla", sans-serif;
     border-radius: 5px;
     border: 1px solid #D5D4D8;
     text-indent: 5px;
+}
+.meme--image{
+    max-width: 100%;
+    border-radius: 3px;
+    padding: 5%;
 }
