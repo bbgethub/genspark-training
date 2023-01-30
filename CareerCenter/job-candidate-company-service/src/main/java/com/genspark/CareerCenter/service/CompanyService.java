@@ -44,7 +44,6 @@ import com.genspark.CareerCenter.repository.CompanyRepository;
 	                Company company = companyRepository.findById(companyId).get();
 	                company.setCompanyName(companyDetails.getCompanyName());
 	                company.setCompanyAddress(companyDetails.getCompanyAddress());
-	                
 	                return companyRepository.save(company);
 	        }
 	}
