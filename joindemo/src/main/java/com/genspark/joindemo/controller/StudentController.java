@@ -1,6 +1,7 @@
 package com.genspark.joindemo.controller;
 
 import com.genspark.joindemo.DTO.StudentResponse;
+import com.genspark.joindemo.entity.APCourse;
 import com.genspark.joindemo.entity.Student;
 import com.genspark.joindemo.repository.AddressRepository;
 import com.genspark.joindemo.service.StudentService;
@@ -36,4 +37,10 @@ public class StudentController {
         });
         return studentResponseList;
     }
+//    @GetMapping("course/{course}")
+//    public List<Student> getByCourse(@PathVariable String course){
+//        List<Student> studentsList=studentService.getByCourse(course);
+//        return studentsList;
+//    }
+
 }
