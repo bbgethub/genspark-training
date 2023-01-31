@@ -44,7 +44,6 @@ import java.util.List;
 				Candidate candidate = candidateRepository.findById(candidateId).get();
 				candidate.setCandidateName(candidateName);
 				candidate.setCandidateCV(candidateCV.getBytes());
-	                
 	                return candidateRepository.save(candidate);
 	        }
 
