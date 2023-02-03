@@ -18,7 +18,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.JsonPathResultMatchers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -39,14 +41,13 @@ class StudentControllerTest {
     private StudentService studentService;
     @InjectMocks
     private StudentController studentController;
-    Address address1=new Address(1,"Street1","city1");
-    APCourse apCourse1=new APCourse(1,"course1");
-    APCourse apCourse2=new APCourse(2,"course2");
+ //   Address address1=new Address(1,"Street1","city1");
+//    APCourse apCourse1=new APCourse(1,"course1");
+//    APCourse apCourse2=new APCourse(2,"course2");
     Set<APCourse> apCourseSet=new HashSet<APCourse>();
-//    apCourseSet.add(apCourse1);
+//   apCourseSet.add(apCourse1);
 //    apCourseSet.add(apCourse2);
-    Student record1=new Student(1,"FirstName1","LastName","email1@gmail.com",address1,apCourseSet);
-
+    Student record1=new Student(1,"FirstName1","LastName","email1@gmail.com",new Address(),apCourseSet);
     @BeforeEach
     void setUp() {
         this.mockMvc= MockMvcBuilders.standaloneSetup(studentController).build();
@@ -59,12 +60,12 @@ class StudentControllerTest {
     @Test
     void createStudent() throws Exception{
         Student studentTest=record1;
-        Mockito.when(studentService.createStudent(studentTest)).thenReturn(studentTest);
+        Mockito.when(studentService.createStudent(studentTest)).thenReturn(record1);
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/create")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("fname",is("FirstName1")));
+                .andExpect((ResultMatcher) jsonPath("firstName",is("FirstName1")));
     }
 
     @Test

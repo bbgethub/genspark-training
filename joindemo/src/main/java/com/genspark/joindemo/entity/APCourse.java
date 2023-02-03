@@ -11,11 +11,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-@Entity
-@Table(name="APcourse")
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name="APcourse")
 public class APCourse {
     @Id
     @Getter

@@ -27,7 +27,7 @@ public class FindMissingNumbers {
             }
 
         }
-        int lastElement=list.get(list.size()-1);
+        int lastElement=list.get(last);
         for(int i=lastElement;i<35;i++)
             result.add(i+1);
         System.out.println("LastElement: "+lastElement);

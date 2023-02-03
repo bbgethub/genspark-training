@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class ArrayElementsConsecutive {
     public static void main(String args[])
     {
-        int array[] = new int[]{6, 7, 5, 1};
+        int array[] = new int[]{6, 7, 5,8};
         int l=array.length;
         Arrays.sort(array);
         int first=array[0];
