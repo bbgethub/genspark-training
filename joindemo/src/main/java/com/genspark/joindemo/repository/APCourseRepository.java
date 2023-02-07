@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 
-public interface APCourseRepository extends JpaRepository<APCourse,Long> {
+public interface APCourseRepository extends JpaRepository<APCourse,Integer> {
     List<APCourse> findAPCourseByStudentId(Long studentId);
 }
