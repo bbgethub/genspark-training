@@ -1,0 +1,49 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=tempdb;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: sa
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    jpa:
+      show-sql: true
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+  application:
+    name: STUDENTS-SERVICE
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
+management:
+  health:
+    circuitBreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitBreaker:
+    instances:
+      SERVICE_STUDENT:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 4
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 10
+        slidingWindowType:  COUNT-BASED
+
+
+

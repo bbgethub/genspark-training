@@ -4,6 +4,7 @@ import com.genspark.joindemo.VO.Grade;
 import com.genspark.joindemo.VO.ResponseTemplateVO;
 import com.genspark.joindemo.entity.Student;
 import com.genspark.joindemo.repository.StudentRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,14 +36,21 @@ public class StudentService {
     public List<Student> getByCity(String city) {
         return studentRepository.getByAddressCity(city);
     }
-
+    private static final String SERVICE_STUDENT= "getStudentWithGrades";
+    @CircuitBreaker(name=SERVICE_STUDENT,fallbackMethod = "FallBack" )
     public ResponseTemplateVO getStudentWithGrades(Integer studentId) {
         log.info("Inside getStudentWithGrades method of StudentService");
         ResponseTemplateVO responseTemplateVO= new ResponseTemplateVO();
         Optional<Student> student=studentRepository.findById(studentId);
-        Grade[] grade= restTemplate.getForObject("http://localhost:9002/grade/api/grades/" + studentId, Grade[].class);
+        Grade[] grade= restTemplate.getForObject("http://GRADES-SERVICE/grade/api/grades/" + studentId, Grade[].class);
             responseTemplateVO.setStudent(student);
             responseTemplateVO.setGrade(List.of(grade));
+        return responseTemplateVO;
+    }
+
+    public ResponseTemplateVO FallBack(Exception e)
+    {
+        ResponseTemplateVO responseTemplateVO= new ResponseTemplateVO();
         return responseTemplateVO;
     }
 

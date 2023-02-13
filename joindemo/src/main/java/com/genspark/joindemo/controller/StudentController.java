@@ -6,6 +6,7 @@ import com.genspark.joindemo.entity.APCourse;
 import com.genspark.joindemo.entity.Student;
 import com.genspark.joindemo.repository.AddressRepository;
 import com.genspark.joindemo.service.StudentService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,7 @@ public class StudentController {
 //        List<Student> studentsList=studentService.getByCourse(course);
 //        return studentsList;
 //    }
+
     @GetMapping("/{id}")
     public ResponseTemplateVO getStudentsWithGrades(@PathVariable("id") Integer studentId){
         log.info("Inside getStudentsWithGrades method of StudentController");

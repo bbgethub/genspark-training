@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d666f431-4b84-4e43-8f2b-5af6479f8041" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/entity/APCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/entity/APCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/entity/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grades/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grades/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grades/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../grades/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../joindemo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/JoindemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/JoindemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/java/com/genspark/joindemo/service/StudentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../joindemo/src/test/java/com/genspark/joindemo/controller/StudentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/test/java/com/genspark/joindemo/controller/StudentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../joindemo/src/main/resources/student_tbl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../joindemo/src/main/resources/student_tbl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +24,13 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/genspark/genspark-training/genspark-week4/PracticeJavacoding1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/genspark/genspark-training/genspark-week4/PracticeJavacoding1&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
